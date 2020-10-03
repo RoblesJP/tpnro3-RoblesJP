@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Cadeteria
 {
@@ -23,6 +24,19 @@ namespace Cadeteria
             Nombre = nombre;
             Direccion = direccion;
             Telefono = telefono;
+        }
+
+        public void AgregarPedido(Pedido pedido)
+        {
+            ListaDePedidos.Add(pedido);
+        }
+
+        public int Jornal()
+        {
+            int jornal = 0;
+            int cantidadDePedidosEnregados = (ListaDePedidos.Where(pedido => pedido.Estado == Estado.Entregado)).Count();
+            jornal = cantidadDePedidosEnregados * 100;
+            return jornal;
         }
     }
 }

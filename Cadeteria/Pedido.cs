@@ -23,8 +23,10 @@ namespace Cadeteria
 
         public Pedido(string descripcion, string nombreDeCliente, string direccionDeCliente, long telefonoDeCliente)
         {
+            Nro = new Random().Next(1000, 10000);
             Descripcion = descripcion;
             Cliente = new Cliente(nombreDeCliente, direccionDeCliente, telefonoDeCliente);
+            Estado = Estado.Pendiente;
         }
     }
 }
