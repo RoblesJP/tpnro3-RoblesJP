@@ -24,6 +24,7 @@ namespace Cadeteria
             Nombre = nombre;
             Direccion = direccion;
             Telefono = telefono;
+            ListaDePedidos = new List<Pedido>();
         }
 
         public void AgregarPedido(Pedido pedido)
@@ -37,6 +38,17 @@ namespace Cadeteria
             int cantidadDePedidosEnregados = (ListaDePedidos.Where(pedido => pedido.Estado == Estado.Entregado)).Count();
             jornal = cantidadDePedidosEnregados * 100;
             return jornal;
+        }
+
+        public int CantidadDePedidosEntregados()
+        {
+            int cantidadDePedidosEntregados = (ListaDePedidos.Where(pedido => pedido.Estado == Estado.Entregado)).Count();
+            return cantidadDePedidosEntregados;
+        }
+
+        public double PromedioDePedidosEntregados()
+        {
+            return (double) CantidadDePedidosEntregados() / (double) ListaDePedidos.Count;
         }
     }
 }

@@ -7,8 +7,8 @@ namespace punto2
     {
         static void Main(string[] args)
         {
-            Empresa miCadeteria1 = new Empresa("Mi Cadeteria");
-            Console.WriteLine("Hello World!");
+            Empresa miCadeteria1 = Helper.GenerarEmpresaAleatoria(5, 5);
+            Helper.InformeDeEmpresa(miCadeteria1);
         }
     }
 }
